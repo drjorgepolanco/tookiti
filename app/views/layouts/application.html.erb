@@ -17,10 +17,16 @@
   	<%= render 'layouts/header' %>
 
     <div class="row full_width">
+      <% flash.each do |msg_type, msg| %>
+        <div data-alert class="alert-box <%= msg_type %>"><%= msg %></div>
+      <% end %>
+
       <%= yield %>
+
+      <%= render 'layouts/footer' %>
     </div>
 
-    <%= render 'layouts/footer' %> 
+     
     <%= javascript_include_tag "application" %>
   </body>
 </html>
