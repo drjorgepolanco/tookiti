@@ -6,33 +6,37 @@
 		<h4 class="signup_subtitle">Join Tookiti and start creating contests.</h4>
 
 		<%= form_for(@user) do |f| %>
+
+				<%= render 'shared/error_messages' %>
+
 			<div class="large-6 medium-6 columns">
-				<%#= f.label :first_name %>
 				<%= f.text_field :first_name, class: "radius", 
 																	  	placeholder: 'First name' %>
 			</div>
+
 			<div class="large-6 medium-6 columns">
-				<%#= f.label :last_name %>
 				<%= f.text_field :last_name, class: "radius", 
 																		 placeholder: 'Last name' %>
 			</div>
+
 			<div class="large-12 columns">
-				<%#= f.label :email %>
 				<%= f.text_field :email, class: "radius", placeholder: 'Email' %>
 			</div>
+
 			<div class="large-6 medium-6 columns">
-				<%#= f.label :password %>
 				<%= f.password_field :password, class: "radius", 
 																				placeholder: 'Create a password' %>
 			</div>
+
 			<div class="large-6 medium-6 columns">
-				<%#= f.label :password_confirmation, 'Confirmation' %>
 				<%= f.password_field :password_confirmation, class: "radius", 
 			  										 placeholder: 'Confirm your password' %>
 			</div>
+
 			<div class="large-12 columns">
 				<%= f.submit 'Sign Up', class: 'button expand alert radius' %>
 			</div>
+
 		<% end %>
 	</div>
 </div>
