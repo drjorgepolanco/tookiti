@@ -13,8 +13,13 @@
   </head>
 
   <body>
+
   	<%= render 'layouts/header' %>
-    <%= yield %>
+
+    <div class="row full_width">
+      <%= yield %>
+    </div>
+    
     <%= javascript_include_tag "application" %>
   </body>
 </html>
