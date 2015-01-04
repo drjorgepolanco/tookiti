@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	before_save { email.downcase! }
+	before_save { first_name.capitalize! }
+	before_save { last_name.capitalize! }
 	validates :first_name, presence: true, length: { maximum: 30 }
 	validates :last_name,  presence: true, length: { maximum: 30 }
 	
