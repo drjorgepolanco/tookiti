@@ -39,4 +39,13 @@ class UserTest < ActiveSupport::TestCase
 		@user.email = "x" * 101
 		assert_not @user.valid?
 	end	
+
+	test "email validation should accept valid addresses" do
+		valid_emails = %w[example@mail.com X_YZK-Y2K@mail.example.do 
+												 EXAMPLE@mail.COM mike+alisha@example.us one.two@xx.org]
+		valid_emails.each do |email|
+			@user.email = email
+			assert @user.valid?, "#{email.inspect} should be valid"
+		end
+	end	
 end
