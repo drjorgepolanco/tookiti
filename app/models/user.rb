@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	attr_accessor :remember_token
 	before_save { email.downcase! }
 	before_save { first_name.capitalize! }
 	before_save { last_name.capitalize! }
@@ -17,4 +18,14 @@ class User < ActiveRecord::Base
 		                                              BCrypt::Engine.cost
 		BCrypt::Password.create(string, cost: cost)
 	end
+
+	def self.new_token
+		SecureRandom.urlsafe_base64
+	end
+
+	def remember
+		self.remember_token = User.new_token
+		update_attribute(:remember_digest, User.digest(remember_token))
+	end
+
 end
