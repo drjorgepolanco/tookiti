@@ -21,7 +21,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		get edit_user_path(@user)
 		assert_template('users/edit')
 		first_name = 'Juancito'
-		last_name  = 'Tre Diente'
+		last_name  = 'Trediente'
 		email      = 'tredientico@example.com'
 		patch user_path(@user), user: { first_name: first_name, 
 			                              last_name:  last_name,
