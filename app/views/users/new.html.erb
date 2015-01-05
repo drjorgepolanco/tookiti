@@ -36,7 +36,10 @@
 			<div class="large-12 columns">
 				<%= f.submit 'Sign Up', class: 'button expand alert radius' %>
 			</div>
-
 		<% end %>
+
+			<p class="signup_title">Already a user?<br>
+				<%= link_to 'Log in now!', login_path %>
+			</p>
 	</div>
 </div>
