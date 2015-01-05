@@ -5,11 +5,13 @@
 		<h1 class="signup_title">Tookiti!</h1>
 
 		<%= form_for(:session, url: login_path) do |f| %>
+		
+			<div class="large-12 columns">
+				<%= f.text_field :email, class: 'radius', placeholder: 'Email' %>
+				<%= f.password_field :password, class: 'radius', placeholder: 'Password' %>
 
-			<%= f.text_field :email, class: 'radius', placeholder: 'Email' %>
-			<%= f.password_field :password, class: 'radius', placeholder: 'Password' %>
-
-			<%= f.submit 'Log in', class: 'button expand success radius' %>
+				<%= f.submit 'Log in', class: 'button expand success radius' %>
+			</div>
 
 		<% end %>
 		<p class="signup_title">New user?<br>
