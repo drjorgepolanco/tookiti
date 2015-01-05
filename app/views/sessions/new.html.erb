@@ -1,2 +1,19 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% provide(:title, "Log in") %>
+
+<div class="row">
+	<div class="large-6 large-offset-3 columns">
+		<h1 class="signup_title">Tookiti!</h1>
+
+		<%= form_for(:session, url: login_path) do |f| %>
+
+			<%= f.text_field :email, class: 'radius', placeholder: 'Email' %>
+			<%= f.password_field :password, class: 'radius', placeholder: 'Password' %>
+
+			<%= f.submit 'Log in', class: 'button expand success radius' %>
+
+		<% end %>
+		<p class="signup_title">New user?<br>
+			<%= link_to 'Sign up now!', signup_path %>
+		</p>
+	</div>
+</div>
