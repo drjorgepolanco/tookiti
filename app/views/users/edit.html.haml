@@ -1,0 +1,13 @@
+- provide(:title, 'Edit Profile')
+= render 'shared/error_messages'
+.row
+	.large-6.large-offset-3.columns
+		%h1.signup_title edit your profile!
+		.large-6.large-offset-3.columns.gravatar_edit
+			= gravatar(@user)
+			%a{href: 'http://gravatar.com/emails', target: '_blank'} change
+		= form_for(@user) do |f|
+			= render 'fields', f: f
+			.large-12.columns
+				= f.submit 'save changes', class: 'button expand alert radius'
+

@@ -1,27 +1,18 @@
-<% provide(:title, "Log in") %>
+- provide(:title, "Log in")
 
-<div class="row">
-	<div class="large-6 large-offset-3 columns">
-		<h1 class="signup_title">TookiTi!</h1>
-		<h4 class="signup_subtitle">We can't wait to see you in.</h4>
-
-		<%= form_for(:session, url: login_path) do |f| %>
-		
-			<div class="large-12 columns">
-				<%= f.text_field :email, class: 'radius', placeholder: 'Email' %>
-				<%= f.password_field :password, class: 'radius', placeholder: 'Password' %>
-
-				<%= f.label :remember_me do %>
-					<%= f.check_box :remember_me %>
-					<span>Remember me on this computer</span>
-				<% end %>
-
-				<%= f.submit 'Log In', class: 'button expand success radius' %>
-			</div>
-
-		<% end %>
-		<p class="signup_title">New User?<br>
-			<%= link_to 'Sign Up Now!', signup_path %>
-		</p>
-	</div>
-</div>
+.row
+	.large-6.large-offset-3.columns
+		%h1.signup_title TookiTi!
+		%h4.signup_subtitle we can't wait to see you in.
+		= form_for(:session, url: login_path) do |f|
+			.large-12.columns
+				= f.text_field :email, class: 'radius', placeholder: 'email'
+				= f.password_field :password, class: 'radius', placeholder: 'password'
+				= f.label :remember_me do
+					= f.check_box :remember_me
+					%span remember me on this computer
+				= f.submit 'log in', class: 'button expand success radius'
+		%p.signup_title
+			new user?
+			%br
+				= link_to 'sign up now!', signup_path

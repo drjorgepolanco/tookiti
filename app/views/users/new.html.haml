@@ -1,45 +1,14 @@
-<% provide(:title, 'Sign Up') %>
-
-<%= render 'shared/error_messages' %>
-
-<div class="row">
-	<div class="large-6 large-offset-3 columns">
-		<h1 class="signup_title">TookiTi!</h1>
-		<h4 class="signup_subtitle">Join TookiTi! and start creating contests.</h4>
-
-		<%= form_for(@user) do |f| %>
-
-			<div class="large-6 medium-6 columns">
-				<%= f.text_field :first_name, class: "radius", 
-																	  	placeholder: 'First name' %>
-			</div>
-
-			<div class="large-6 medium-6 columns">
-				<%= f.text_field :last_name, class: "radius", 
-																		 placeholder: 'Last name' %>
-			</div>
-
-			<div class="large-12 columns">
-				<%= f.text_field :email, class: "radius", placeholder: 'Email' %>
-			</div>
-
-			<div class="large-6 medium-6 columns">
-				<%= f.password_field :password, class: "radius", 
-																				placeholder: 'Create a password' %>
-			</div>
-
-			<div class="large-6 medium-6 columns">
-				<%= f.password_field :password_confirmation, class: "radius", 
-			  										 placeholder: 'Confirm your password' %>
-			</div>
-
-			<div class="large-12 columns">
-				<%= f.submit 'Sign Up', class: 'button expand alert radius' %>
-			</div>
-		<% end %>
-
-			<p class="signup_title">Already a User?<br>
-				<%= link_to 'Log In Now!', login_path %>
-			</p>
-	</div>
-</div>
+- provide(:title, 'Sign Up')
+= render 'shared/error_messages'
+.row
+	.large-6.large-offset-3.columns
+		%h1.signup_title TookiTi!
+		%h4.signup_subtitle join TookiTi! and start creating contests.
+		= form_for(@user) do |f|
+			= render 'fields', f: f
+			.large-12.columns
+				= f.submit 'sign up', class: 'button expand alert radius'
+		%p.signup_title 
+			already a user?
+			%br/
+			= link_to 'log in now!', login_path

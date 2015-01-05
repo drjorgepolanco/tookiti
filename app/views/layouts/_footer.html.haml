@@ -1,16 +1,12 @@
-<footer class="row">
-  <div class="large-12 columns">
-    <hr/>
-      <div class="large-6 columns">
-        <p>Tookiti © <%= Time.now.year %></p>
-      </div>
-      <div class="large-6 columns">
-        <ul class="inline-list right">
-          <li><%= link_to "Home",    contact_path %></li>
-          <li><%= link_to "About",   about_path   %></li>
-          <li><%= link_to "Help",    help_path    %></li>
-          <li><%= link_to "Contact", contact_path %></li>
-        </ul>
-      </div>
-  </div>
-</footer>
+%footer.row
+  .large-12.columns
+    %hr/
+    .large-6.columns
+      %p 
+        Tookiti © #{Time.now.year}
+    .large-6.columns 
+      %ul.inline-list.right
+        %li= link_to "home",    contact_path
+        %li= link_to "about",   about_path
+        %li= link_to "help",    help_path
+        %li= link_to "contact", contact_path

@@ -1,9 +1,6 @@
-<% provide(:title, full_name(@user)) %>
-<div class="row">
-	<aside class="large-2 columns">
-		<section class="user_area">
-			<%= gravatar(@user) %>
-			<h4 class="user_area_title"><%= full_name(@user) %></h4>
-		</section>
-	</aside>	
-</div>
+- provide(:title, full_name(@user))
+.row
+	%aside.large-2.columns
+		%section.user_area
+			= gravatar(@user)
+			%h4.user_area_title= full_name(@user)

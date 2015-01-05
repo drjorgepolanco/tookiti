@@ -1,45 +1,35 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "TookiTi!", root_path %></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="right">
-      <li class="divider"></li>
-      <li><%= link_to "home", root_path %></li>
-      <% if logged_in? %>
-        <li class="divider"></li>
-        <li><%= link_to 'users', 'users_path' %></li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <%= link_to 'profile', current_user %>
-          <ul class="dropdown">
-            <li><%= link_to 'settings', '#' %></li>
-            <li class="divider"></li>
-            <li><%= link_to 'log out', logout_path, method: :delete %></li>
-          </ul>
-        </li>
-      <% else %>
-        <li class="divider"></li>
-        <li class="has-form">
-          <%= link_to 'sign up', signup_path, class: 'button alert radius' %>
-        </li>
-        <li class="divider"></li>
-        <li class="has-form">
-          <%= link_to 'log in', login_path, class: 'button success radius' %>
-        </li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="#">more</a>
-          <ul class="dropdown">
-            <li><%= link_to "about", about_path %></li>
-            <li><%= link_to "help", help_path %></li>
-            <li><%= link_to "contact", contact_path %></li>
-          </ul>
-      </li>
-      <% end %>
-    </ul>
-  </section>
-</nav>
+%nav.top-bar{"data-topbar" => ""}
+  %ul.title-area
+    %li.name
+      %h1= link_to "TookiTi!", root_path
+    %li.toggle-topbar.menu-icon
+      %a{href: '#'}
+        %span menu
+  %section.top-bar-section
+    %ul.right
+      %li.divider
+      %li= link_to 'home', root_path
+      - if logged_in?
+        %li.divider
+        %li= link_to 'users', users_path
+        %li.divider
+        %li.has-dropdown
+          = link_to 'profile', current_user
+          %ul.dropdown
+            %li= link_to 'settings', edit_user_path(current_user)
+            %li.divider
+            %li= link_to 'logout',   logout_path, method: :delete
+      - else
+        %li.divider
+        %li.has-form
+          = link_to 'sign up', signup_path,  class: 'button alert radius'
+        %li.divider
+        %li.has-form 
+          = link_to 'log in',  login_path,   class: 'button success radius'
+        %li.divider
+        %li.has-dropdown
+          %a{href: '#'} more
+          %ul.dropdown
+            %li= link_to 'about',   about_path
+            %li= link_to 'help',    help_path
+            %li= link_to 'contact', contact_path
