@@ -23,7 +23,10 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
 		end
 	end
 
-	# test "" do
-	# end
+	test "index as non admin user" do
+		log_in_as(@user)
+		get(users_path)
+		assert_select('a', text: 'delete', count: 0)
+	end
 
 end
