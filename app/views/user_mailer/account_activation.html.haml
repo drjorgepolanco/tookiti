@@ -1,6 +1,5 @@
-%h1 TookiTi!
-%p Hi #{@user.first_name}!,
-%p Welcome to TookiTi!
-%p Click on the link below to activate your account:
-	= link_to 'Activate', edit_account_activation_url(@user.activation_token,
-	                                                  email: @user.email)
+%h3 Hi #{@user.first_name}! Welcome to TookiTi!
+%p
+	%strong 
+		Click #{link_to 'here', edit_account_activation_url(@user.activation_token, |
+		email: @user.email)} to activate your account.                              |
