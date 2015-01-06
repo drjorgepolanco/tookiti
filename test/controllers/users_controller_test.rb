@@ -47,4 +47,19 @@ class UsersControllerTest < ActionController::TestCase
   	assert_redirected_to(root_url)
   end
 
+  test "should redirect destroy when the user is not logged in" do
+    assert_no_difference('User.count') do
+      delete :destroy, id: @user
+    end
+    assert_redirected_to(login_url)
+  end
+
+  test "should redirect destroy when user is logged in but is not admin" do
+    log_in_as(@user_two)
+    assert_no_difference('User.count') do
+      delete :destroy, id: @user
+    end
+    assert_redirected_to(root_url)
+  end
+
 end
