@@ -5,6 +5,7 @@
 		%h1.signup_title edit your profile!
 		.large-6.large-offset-3.columns.gravatar_edit
 			= gravatar(@user)
+			%br/
 			%a{href: 'http://gravatar.com/emails', target: '_blank'} change
 		= form_for(@user) do |f|
 			= render 'fields', f: f
