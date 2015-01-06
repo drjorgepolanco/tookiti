@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       flash[:success] = 'profile updated'
       redirect_to(@user)
     else
-      render 'edit'
+      render('edit')
     end
   end
 
@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 
     def logged_in_user
       unless logged_in?
+        store_location
         flash[:alert] = 'please log in'
         redirect_to(login_url)
       end
