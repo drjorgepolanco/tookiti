@@ -2,3 +2,6 @@
 	= link_to(gravatar(user), user)
 	%br/
 	= link_to(full_name(user), user)
+	- if current_user.admin? && !current_user?(user)
+		%br/
+		= link_to 'delete', user, method: :delete, data: { confirm: 'Are you sure?' }
