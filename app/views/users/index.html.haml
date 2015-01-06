@@ -2,8 +2,5 @@
 
 .large-12.columns
 	%h1 All Users
-	- @users.each do |user|
-		.large-2.medium-3.small-6.columns.center_text.left
-			= link_to(gravatar(user), user)
-			%br/
-			= link_to(full_name(user), user)
+	= render @users
+		
