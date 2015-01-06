@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'sdoc'
 gem 'haml'
+gem 'faker'
 
 group :development, :test do
   gem 'sqlite3'
