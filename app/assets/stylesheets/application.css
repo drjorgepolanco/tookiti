@@ -22,3 +22,7 @@
    margin-right: auto;
    max-width: initial;
 }
+
+.center_text {
+	text-align: center;
+}
