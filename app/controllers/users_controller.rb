@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
       log_in(@user)
-  		flash[:success] = "hi #{@user.first_name}! welcome to TookiTi!"
+  		flash[:success] = "Hi #{@user.first_name}! Welcome to TookiTi!"
   		redirect_to(@user)
   	else
   		render('new')
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = 'profile updated'
+      flash[:success] = 'Profile updated'
       redirect_to(@user)
     else
       render('edit')
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     def logged_in_user
       unless logged_in?
         store_location
-        flash[:alert] = 'please log in'
+        flash[:alert] = 'Please log in'
         redirect_to(login_url)
       end
     end
