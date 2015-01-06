@@ -9,7 +9,7 @@ module ApplicationHelper
 	end
 
 	def full_name(user)
-		"#{@user.first_name.capitalize} #{@user.last_name.capitalize}"
+		"#{user.first_name.capitalize} #{user.last_name.capitalize}"
 	end
 
 	def gravatar(user, options = {size: 240})
