@@ -3,8 +3,10 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 	
 	def setup
-		@user = User.new(first_name: "Name", last_name: "Lastname",
-										 email: "user@mail.com", password: 'password',
+		@user = User.new(first_name: "Name", 
+			               last_name: "Lastname",
+			               email: "user@mail.com", 
+			               password: 'password',
 										 password_confirmation: 'password')
 	end
 
@@ -88,4 +90,11 @@ class UserTest < ActiveSupport::TestCase
 		assert_not @user.authenticated?(:remember, '')
 	end
 
+	test "associated posts should be destroyed" do
+		@user.save
+		@user.posts.create!(title: 'The title', image: 'lemur.png')
+		assert_difference('Post.count', -1) do
+			@user.destroy
+		end
+	end
 end
