@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
 	before_create :create_activation_digest
 
-	has_many :posts
+	has_many :posts, dependent: :destroy
 	has_secure_password
 	
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
