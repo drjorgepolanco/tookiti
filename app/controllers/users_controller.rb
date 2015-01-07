@@ -22,9 +22,9 @@ class UsersController < ApplicationController
       @user.send_activation_email
       flash[:info] = "hi #{@user.first_name}! please, check your email to activate your account"
       redirect_to(root_url)
-  	else
+    else
       render('new')
-  	end
+    end
   end
 
   def edit
@@ -51,10 +51,10 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-  	def user_params
+    def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password,
                                    :password_confirmation)
-  	end
+    end
 
     def logged_in_user
       unless logged_in?
