@@ -1,18 +1,24 @@
 class User < ActiveRecord::Base
+
 	attr_accessor :remember_token, :activation_token, :reset_token
+
 	before_save { email.downcase! }
 	before_save { first_name.capitalize! }
 	before_save { last_name.capitalize! }
+
 	before_create :create_activation_digest
-	validates :first_name, presence: true, length: { maximum: 30 }
-	validates :last_name,  presence: true, length: { maximum: 30 }
+
+	has_many :posts
+	has_secure_password
 	
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-	validates :email, 		 presence: true, length: { minimum: 7, maximum: 100 },
-												 format: { with: VALID_EMAIL },
-												 uniqueness: { case_sensitive: false }
-	has_secure_password
 	validates :password, length: { minimum: 8 }, allow_blank: true
+	validates :first_name, :last_name, presence: true, length: { maximum: 30 }
+	validates :email, presence: true, length: { minimum: 7, maximum: 100 },
+	                  format: { with: VALID_EMAIL }, 
+	                  uniqueness: { case_sensitive: false }
+
+	
 
 	def self.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
