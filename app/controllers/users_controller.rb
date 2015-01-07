@@ -13,17 +13,17 @@ class UsersController < ApplicationController
   end
 
   def new
-  	@user = User.new
+    @user = User.new
   end
 
   def create
-  	@user = User.new(user_params)
-  	if @user.save
+    @user = User.new(user_params)
+    if @user.save
       @user.send_activation_email
       flash[:info] = "hi #{@user.first_name}! please, check your email to activate your account"
       redirect_to(root_url)
   	else
-  		render('new')
+      render('new')
   	end
   end
 
@@ -52,8 +52,8 @@ class UsersController < ApplicationController
     end
 
   	def user_params
-  		params.require(:user).permit(:first_name, :last_name, :email, :password, 
-  																 :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password,
+                                   :password_confirmation)
   	end
 
     def logged_in_user
