@@ -24,7 +24,7 @@ class PasswordResetsController < ApplicationController
 
   def update
     if both_passwords_blank?
-      flash.now[:danger] = 'sorry, the password/confirmation can not be blank'
+      flash.now[:warning] = "sorry, the password/confirmation can't be blank"
       render('edit')
     elsif @user.update_attributes(user_params)
       log_in @user
@@ -51,8 +51,7 @@ class PasswordResetsController < ApplicationController
     end
 
     def valid_user
-      unless (@user and @user.activated? and
-              @user.authenticated?(:reset, params[:id]))
+      unless (@user and @user.activated? and @user.authenticated?(:reset, params[:id]))
       redirect_to(root_url)
     end
 
@@ -62,4 +61,5 @@ class PasswordResetsController < ApplicationController
         redirect_to(new_password_reset_url)
       end
     end
+  end
 end
