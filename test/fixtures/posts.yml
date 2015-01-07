@@ -1,11 +1,19 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+cat:
+ title: "The cat title"
+ image: "cat.png"
+ created_at: <%= 3.months.ago %>
 
-one:
-  user_id: 
-  title: MyString
-  image: MyString
+dog:
+ title: "The dog title"
+ image: "dog.png"
+ created_at: <%= 4.hours.ago %>
 
-two:
-  user_id: 
-  title: MyString
-  image: MyString
+pig:
+ title: "The pig title"
+ image: "pig.png"
+ created_at: <%= Time.zone.now %>
+
+lemur:
+ title: "The lemur title"
+ image: "lemur.png"
+ created_at: <%= 10.minutes.ago %>
