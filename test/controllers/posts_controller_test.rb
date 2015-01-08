@@ -30,7 +30,7 @@ class PostsControllerTest < ActionController::TestCase
 	test "should redirect edit when logged in as wrong user" do
 		log_in_as(@other_user)
 		get :edit, id: @post
-		assert flash.empty?
+		assert_not flash.empty?
 		assert_redirected_to(root_url)
 	end
 
@@ -38,10 +38,10 @@ class PostsControllerTest < ActionController::TestCase
 		log_in_as(@other_user)
 		patch :update, id: @post, post: { title: @post.title,
 		                                  image: @post.image }
-		assert flash.empty?
+		assert_not flash.empty?
 		assert_redirected_to(root_url)
 	end
-	
+
 	test "should redirect destroy when not logged in" do
 		assert_no_difference('Post.count') do
 			delete :destroy, id: @post
