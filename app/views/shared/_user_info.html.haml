@@ -1,0 +1,3 @@
+= link_to gravatar(current_user, size: 100), current_user 
+%h3= link_to full_name(current_user), current_user
+= pluralize(current_user.posts.count, 'post')

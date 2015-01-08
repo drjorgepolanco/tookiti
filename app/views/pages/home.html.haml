@@ -1,2 +1,15 @@
-- provide(:title, 'Home')
+/ - if logged_in?
+/   .row
+/     %aside.large-2.columns
+/       %section.user_info
+/         = render('shared/user_info')
+/       %section.post_form
+/         = render('shared/post_form')
+/ - else
+.large-12.columns
+  %h1 
+    %strong welcome to TookiTi!
+  %h3 the contest-based social network
+
+
 

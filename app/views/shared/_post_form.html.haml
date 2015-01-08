@@ -1,0 +1,6 @@
+= render('posts_error_messages')
+= form_for(@post) do |f|
+  .field
+    = f.text_field :title,    class: 'radius', placeholder: 'post title'
+    = f.text_field :image,    class: 'radius', placeholder: 'post image'
+    = f.submit 'create post', class: 'button expand radius'

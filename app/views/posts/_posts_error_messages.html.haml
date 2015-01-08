@@ -1,0 +1,6 @@
+- if @post.errors.any?
+  .div{class: 'alert-box warning', 'data-alert' => ''}
+    %h4 the form contains #{pluralize(@post.errors.count, 'error')}
+    %ul
+      - @post.errors.full_messages.each do |msg|
+        %li= msg.downcase
