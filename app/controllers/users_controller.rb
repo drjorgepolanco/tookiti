@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @posts = @user.posts
     redirect_to(root_url) and return unless @user.activated?
   end
 
