@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'sdoc'
 gem 'haml'
+gem 'faker'
 
 group :development, :test do
   gem 'sqlite3'
@@ -24,7 +25,6 @@ end
 group :test do
   gem 'minitest-reporters'
   gem 'mini_backtrace'
-  gem 'faker'
 end
 
 group :production do
