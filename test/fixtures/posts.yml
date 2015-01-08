@@ -2,18 +2,22 @@ cat:
  title: "The cat title"
  image: "cat.png"
  created_at: <%= 3.months.ago %>
+ user: triculito
 
 dog:
  title: "The dog title"
  image: "dog.png"
  created_at: <%= 4.hours.ago %>
+ user: triculito
 
 pig:
  title: "The pig title"
  image: "pig.png"
  created_at: <%= Time.zone.now %>
+ user: triculito
 
 lemur:
  title: "The lemur title"
  image: "lemur.png"
  created_at: <%= 10.minutes.ago %>
+ user: triculito
