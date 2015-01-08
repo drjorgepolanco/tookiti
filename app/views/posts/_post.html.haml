@@ -1,9 +1,11 @@
-#post-#{post.id}
-	= link_to(gravatar(post.user, size: 50), post.user)
-	%span.user= link_to(full_name(post.user), post.user)
-	%span.post_title= post.title
-	= image_tag(post.image)
-	%span.timestamp
-		Posted
-			= time_ago_in_words(post.created_at)
-			ago.
+.large-4.medium-4.small-6.columns.left
+  %div{id: "post-#{post.id}", class: 'post_thumbnail'}
+    .post_image
+      = image_tag(post.image)
+    .post_info
+      .post_title= post.title.titleize
+      .post_user
+        = link_to(gravatar(post.user, size: 30), post.user)
+        %span= link_to(full_name(post.user), post.user)
+      .timestamp
+        posted #{time_ago_in_words(post.created_at)} ago

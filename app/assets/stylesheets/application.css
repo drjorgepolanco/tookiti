@@ -15,6 +15,9 @@
  *= require foundation_and_overrides
 
  */
+body {
+	background-color: #d2d3d6;
+}
 
 .full_width {
    width: 100%;
