@@ -1,4 +1,5 @@
 .large-12.columns
-  = f.text_field :title, class: "radius", placeholder: 'title'
+  = f.text_field :title, class: "radius", placeholder: 'title', autofocus: true
 .large-12.columns
-  = f.text_field :image, class: "radius", placeholder: 'image'
+  / = f.text_field :image, class: "radius", placeholder: 'image'
+  = f.file_field :image

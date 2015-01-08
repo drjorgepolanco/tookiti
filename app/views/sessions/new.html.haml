@@ -6,7 +6,7 @@
     %h4.form_subtitle we can't wait to see you in
     = form_for(:session, url: login_path) do |f|
       .large-12.columns
-        = f.text_field :email, class: 'radius', placeholder: 'email'
+        = f.text_field :email, class: 'radius', placeholder: 'email', autofocus: true
         = f.password_field :password, class: 'radius', placeholder: 'password'
         = link_to '(forgot password)', new_password_reset_path, class: 'right'
         = f.label :remember_me do
