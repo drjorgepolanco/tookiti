@@ -1,0 +1,7 @@
+.large-12.columns
+  .large-6.columns
+    = image_tag @post.image
+  .large-6.columns
+    = @post.title
+    %br/
+    = link_to full_name(@post.user), @post.user
