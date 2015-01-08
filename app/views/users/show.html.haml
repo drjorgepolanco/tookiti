@@ -4,3 +4,8 @@
     %section.user_area
       = gravatar(@user)
       %h4.user_area_title= full_name(@user)
+  .large-8.columns
+    - if  @user.posts.any?
+      %h3 Posts #{@user.posts.count}
+      .posts
+        = render(@posts)
