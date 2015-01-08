@@ -1,14 +1,14 @@
 - provide(:title, 'Sign Up')
-= render 'shared/error_messages'
+= render('shared/error_messages')
 .row
-	.large-6.large-offset-3.columns
-		%h1.signup_title TookiTi!
-		%h4.signup_subtitle find, create, compete, vote
-		= form_for(@user) do |f|
-			= render 'fields', f: f
-			.large-12.columns
-				= f.submit 'sign up', class: 'button expand alert radius'
-		%p.signup_title 
-			already a user?
-			%br/
-			= link_to 'log in now!', login_path
+  .large-6.large-offset-3.columns
+    %h1.signup_title TookiTi!
+    %h4.signup_subtitle find, create, compete, vote
+    = form_for(@user) do |f|
+      = render('fields', f: f)
+      .large-12.columns
+        = f.submit 'sign up', class: 'button expand alert radius'
+    %p.signup_title
+      already a user?
+      %br/
+      = link_to('log in now!', login_path)

@@ -10,18 +10,15 @@ class User < ActiveRecord::Base
 
 	has_many :posts, dependent: :destroy
 	has_secure_password
-	
+
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates :password, length: { minimum: 8 }, allow_blank: true
 	validates :first_name, :last_name, presence: true, length: { maximum: 30 }
 	validates :email, presence: true, length: { minimum: 7, maximum: 100 },
-	                  format: { with: VALID_EMAIL }, 
-	                  uniqueness: { case_sensitive: false }
-
-	
+	          format: { with: VALID_EMAIL }, uniqueness: { case_sensitive: false }
 
 	def self.digest(string)
-		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : 
 		                                              BCrypt::Engine.cost
 		BCrypt::Password.create(string, cost: cost)
 	end
@@ -29,7 +26,7 @@ class User < ActiveRecord::Base
 	def self.new_token
 		SecureRandom.urlsafe_base64
 	end
-
+	
 	def remember
 		self.remember_token = User.new_token
 		update_attribute(:remember_digest, User.digest(remember_token))
@@ -70,9 +67,9 @@ class User < ActiveRecord::Base
 
 	private
 
-		def create_activation_digest
-			self.activation_token  = User.new_token
-			self.activation_digest = User.digest(activation_token)
-		end
+	  def create_activation_digest
+	  	self.activation_token  = User.new_token
+	  	self.activation_digest = User.digest(activation_token)
+	  end
 
 end

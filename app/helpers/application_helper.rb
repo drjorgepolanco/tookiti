@@ -1,4 +1,5 @@
 module ApplicationHelper
+
 	def full_title(page_title = '')
 		base_title = "Tookiti"
 		if page_title.empty?
@@ -18,4 +19,5 @@ module ApplicationHelper
 		gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
 		image_tag(gravatar_url, alt: full_name(user), class: "gravatar")
 	end
+	
 end

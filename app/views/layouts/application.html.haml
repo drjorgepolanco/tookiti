@@ -1,18 +1,18 @@
 !!!
 %html{:lang => 'en'}
   %head
-    %meta{:charset => 'utf-8'}/
-    %meta{:content => 'width=device-width, initial-scale=1.0',  :name => 'viewport'}/
+    %meta{charset: 'utf-8'}/
+    %meta{content: 'width=device-width, initial-scale=1.0',  name: 'viewport'}/
     %title= content_for(:title) ? full_title(yield(:title)) : 'TookiTi!'
     = stylesheet_link_tag    'application'
     = javascript_include_tag 'vendor/modernizr'
     = csrf_meta_tags
-    = render 'layouts/shim'
+    = render('layouts/shim')
   %body
-    = render 'layouts/header'
+    = render('layouts/header')
     .row.full_width
       - flash.each do |msg_type, msg|
-        %div{:class => "alert-box #{msg_type}", 'data-alert' => ''}= msg
+        %div{class: "alert-box #{msg_type}", 'data-alert' => ''}= msg
       = yield
-      = render 'layouts/footer'
+      = render('layouts/footer')
       = javascript_include_tag 'application'

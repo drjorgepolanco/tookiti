@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersEditTest < ActionDispatch::IntegrationTest
-
+	
 	def setup
 		@user = users(:triculito)
 	end
@@ -11,11 +11,11 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		get edit_user_path(@user)
 		assert_template('users/edit')
 		patch user_path(@user), user: { first_name: '',
-		                                last_name:  '',
-		                                email:      'triculito@example.com',
-		                                password:   'pass',
-		                                password_confirmation:       'word' }
-		assert_template('users/edit')
+			                              last_name:  '',
+			                              email:      'triculito@example.com',
+			                              password:   'pass',
+			                              password_confirmation:       'word' }
+	  assert_template('users/edit')
 	end
 
 	test "successful edit with friendly forwarding" do
@@ -25,7 +25,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		first_name = 'Juancito'
 		last_name  = 'Trediente'
 		email      = 'tredientico@example.com'
-		patch user_path(@user), user: { first_name: first_name, 
+		patch user_path(@user), user: { first_name: first_name,
 			                              last_name:  last_name,
 			                              email:      email,
 			                              password:              '',

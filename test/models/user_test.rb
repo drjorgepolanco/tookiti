@@ -1,13 +1,13 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-	
+
 	def setup
-		@user = User.new(first_name: "Name", 
-			               last_name: "Lastname",
-			               email: "user@mail.com", 
-			               password: 'password',
-										 password_confirmation: 'password')
+		@user = User.new(first_name:            'Name',
+			               last_name:             'Lastname',
+			               email:                 'user@mail.com',
+			               password:              'password',
+			               password_confirmation: 'password')
 	end
 
 	test "should be valid" do
@@ -50,8 +50,8 @@ class UserTest < ActiveSupport::TestCase
 	end	
 
 	test "email validation should accept valid addresses" do
-		valid_emails = %w[example@mail.com X_YZK-Y2K@mail.example.do 
-										  EXAMPLE@mail.COM mike+alisha@example.us one.two@xx.org]
+		valid_emails = %w[example@mail.com X_YZK-Y2K@mail.example.do
+			                EXAMPLE@mail.COM mike+alisha@example.us one.two@xx.org]
 		valid_emails.each do |email|
 			@user.email = email
 			assert @user.valid?, "#{email.inspect} should be valid"
@@ -59,13 +59,13 @@ class UserTest < ActiveSupport::TestCase
 	end
 
 	test "email validation should reject invalid addresses" do
-		invalid_emails = %w[example@mail,com example_.com example@mail. 
-											 user@yeah=com.co make@5*5=25 cccd yup@yep+yap.com]
+		invalid_emails = %w[example@mail,com example_.com example@mail.
+			                  user@yeah=com.co make@5*5=25 cccd yup@yep+yap.com]
 		invalid_emails.each do |email|
 			@user.email = email
 			assert_not @user.valid?, "#{email.inspect} should not be valid"
 		end
-	end	
+	end
 
 	test "email should be unique" do
 		duplicate_user = @user.dup
@@ -97,4 +97,5 @@ class UserTest < ActiveSupport::TestCase
 			@user.destroy
 		end
 	end
+	
 end

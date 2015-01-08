@@ -38,23 +38,23 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
 		assert_template('password_resets/edit')
 		assert_select("input[name=email][type=hidden][value=?]", user.email)
 
-		patch password_reset_path(user.reset_token),                 	
-															email: user.email,                 	
-															user: { password:      'foobarki', 	
-															password_confirmation: 'kibarfoo' } 
+		patch password_reset_path(user.reset_token),
+		                          email: user.email,
+		                          user: { password:      'foobarki',
+		                          password_confirmation: 'kibarfoo' }
 		assert_select('div.alert-box.warning')
 
-		patch password_reset_path(user.reset_token),                 	
-															email: user.email,                 	
-															user: { password:      "",         	
-															password_confirmation: "" }        	
+		patch password_reset_path(user.reset_token),
+		                          email: user.email,
+		                          user: { password:      "",
+		                          password_confirmation: "" }
 		assert_not flash.empty?
 		assert_template('password_resets/edit')
 
-		patch password_reset_path(user.reset_token),                 	
-		                          email: user.email,                 	
-		                          user: { password:      'password', 
-		                         	password_confirmation: 'password' } 
+		patch password_reset_path(user.reset_token),
+		                          email: user.email,
+		                          user: { password:      'password',
+		                          password_confirmation: 'password' } 
 		assert is_logged_in?
 		assert_not flash.empty?
 		assert_redirected_to(user)

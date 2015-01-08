@@ -4,7 +4,7 @@ class PostTest < ActiveSupport::TestCase
 
 	def setup
 		@user = users(:triculito)
-		@post = @user.posts.build(user_id: @user.id, title: 'the title', 
+		@post = @user.posts.build(user_id: @user.id, title: 'the title',
 			                        image: 'example.jpg')
 	end
 
@@ -40,4 +40,5 @@ class PostTest < ActiveSupport::TestCase
 	test "order should be must recent first" do
 		assert_equal Post.first, posts(:pig)
 	end
+	
 end
