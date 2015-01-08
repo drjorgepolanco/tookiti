@@ -2,8 +2,8 @@
 
 .row
   .large-6.large-offset-3.columns
-    %h1.signup_title TookiTi!
-    %h4.signup_subtitle get a new password
+    %h1.form_title TookiTi!
+    %h4.form_subtitle get a new password
     = form_for(:password_reset, url: password_resets_path) do |f|
       = f.text_field :email, placeholder: 'email', class: 'radius'
       = f.submit 'submit', class: 'button expand radius'

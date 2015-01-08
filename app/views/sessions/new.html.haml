@@ -2,8 +2,8 @@
 
 .row
   .large-6.large-offset-3.columns
-    %h1.signup_title TookiTi!
-    %h4.signup_subtitle we can't wait to see you in
+    %h1.form_title TookiTi!
+    %h4.form_subtitle we can't wait to see you in
     = form_for(:session, url: login_path) do |f|
       .large-12.columns
         = f.text_field :email, class: 'radius', placeholder: 'email'
@@ -13,7 +13,7 @@
           = f.check_box :remember_me
           %span remember me on this computer
         = f.submit 'log in', class: 'button expand success radius'
-    %p.signup_title
+    %p.form_title
       new user?
       %br
         = link_to 'sign up now!', signup_path

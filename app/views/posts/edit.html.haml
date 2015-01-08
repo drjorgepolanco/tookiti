@@ -1,0 +1,10 @@
+- provide(:title, 'Edit Post')
+= render('posts_error_messages')
+.row
+  .large-6.large-offset-3.columns
+    %h1.form_title TookiTi!
+    %h4.form_subtitle modify your post
+    = form_for(@post) do |f|
+      = render('fields', f: f)
+      .large-12.columns
+        = f.submit 'save changes', class: 'button expand radius'

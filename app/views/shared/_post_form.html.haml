@@ -1,6 +1,11 @@
+- provide(:title, 'Create Post')
 = render('posts_error_messages')
-= form_for(@post) do |f|
-  .field
-    = f.text_field :title,    class: 'radius', placeholder: 'post title'
-    = f.text_field :image,    class: 'radius', placeholder: 'post image'
-    = f.submit 'create post', class: 'button expand radius'
+.row
+  .large-6.large-offset-3.columns
+    %h1.form_title TookiTi!
+    %h4.form_subtitle create a new post
+    .large-12.columns
+      = form_for(@post) do |f|
+        = f.text_field :title,    class: 'radius', placeholder: 'post title'
+        = f.text_field :image,    class: 'radius', placeholder: 'post image'
+        = f.submit 'create post', class: 'button expand radius'

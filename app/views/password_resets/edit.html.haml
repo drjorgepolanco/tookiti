@@ -2,8 +2,8 @@
 = render('shared/users_error_messages')
 .row
   .large-6.large-offset-3.columns
-    %h1.signup_title TookiTi!
-    %h4.signup_subtitle reset your password
+    %h1.form_title TookiTi!
+    %h4.form_subtitle reset your password
     = form_for(@user, url: password_reset_path(params[:id])) do |f|
       = hidden_field_tag :email, @user.email
       = f.password_field :password,              placeholder: 'new password',         class: 'radius'
