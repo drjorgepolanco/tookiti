@@ -48,4 +48,13 @@ class PostsControllerTest < ActionController::TestCase
 		end
 		assert_redirected_to(login_url)
 	end
+
+	test "should redirect destroy for wrong post" do
+		log_in_as(@other_user)
+		post = posts(:cat)
+		assert_no_difference('Post.count') do
+			delete :destroy, id: post
+		end
+		assert_redirected_to(root_url)
+	end
 end
