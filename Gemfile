@@ -13,6 +13,9 @@ gem 'jbuilder'
 gem 'sdoc'
 gem 'haml'
 gem 'faker'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 group :development, :test do
   gem 'sqlite3'
