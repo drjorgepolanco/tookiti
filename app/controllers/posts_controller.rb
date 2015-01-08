@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
-	before_action :set_post,       only: [:show,   :edit, :update, :destroy]
-	before_action :correct_user,   only: [:edit, :update, :destroy]
+	before_action :correct_user,   only:          [:edit, :update, :destroy]
 
 	def show
+		@post = Post.find(params[:id])
 	end
 
 	def index
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 		@post = current_user.posts.build(post_params)
 		if @post.save
 			flash[:success] = 'your post was succcessfully created'
-			redirect_to(@post)
+			redirect_to(posts_path)
 		else
 			render('new')
 		end
@@ -39,19 +39,17 @@ class PostsController < ApplicationController
 	def destroy
 		@post.destroy
 		flash[:success] = 'your post was successfully deleted'
-		redirect_to request.referrer || @posts
+		redirect_to request.referrer || posts_url
 	end
 
 	private
 
-	  def set_post
-	  	@post = Post.find(params[:id])
-	  end
-
 	  def correct_user
 	  	@post = current_user.posts.find_by(id: params[:id])
-	  	redirect_to root_url if @post.nil?
-	  	flash[:warning] = "you can't update or delete somebody else's posts"
+	  	if @post.nil?
+	  		redirect_to root_url 
+	  		flash[:warning] = "you can't update or delete somebody else's posts"
+	  	end
 	  end
 
 	  def post_params
