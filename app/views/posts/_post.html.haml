@@ -1,0 +1,9 @@
+#post-#{post.id}
+	= link_to(gravatar(post.user, size: 50), post.user)
+	%span.user= link_to(full_name(post.user), post.user)
+	%span.post_title= post.title
+	= image_tag(post.image)
+	%span.timestamp
+		Posted
+			= time_ago_in_words(post.created_at)
+			ago.
