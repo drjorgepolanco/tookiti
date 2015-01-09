@@ -5,7 +5,7 @@ class PostTest < ActiveSupport::TestCase
 	def setup
 		@user = users(:triculito)
 		@post = @user.posts.build(user_id: @user.id, title: 'the title',
-			                        image: 'example.jpg')
+			                        image: fixture_file_upload('/files/krake.jpg', 'image/jpg'))
 	end
 
 	test "should be valid" do

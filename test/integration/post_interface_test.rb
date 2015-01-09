@@ -16,7 +16,7 @@ class PostInterfaceTest < ActionDispatch::IntegrationTest
 		assert_select('div.alert-box')
 
 		title = 'Lorem Ipsum'
-		image = 'gatito.jpg'
+		image = fixture_file_upload('/files/krake.jpg', 'image/jpg')
 		assert_difference('Post.count', 1) do
 			post posts_path, post: { title: title, image: image }
 		end

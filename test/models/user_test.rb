@@ -92,7 +92,8 @@ class UserTest < ActiveSupport::TestCase
 
 	test "associated posts should be destroyed" do
 		@user.save
-		@user.posts.create!(title: 'The title', image: 'lemur.png')
+		@user.posts.create!(title: 'The title', 
+			                  image: fixture_file_upload('/files/krake.jpg', 'image/jpg'))
 		assert_difference('Post.count', -1) do
 			@user.destroy
 		end
