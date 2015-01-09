@@ -5,6 +5,7 @@
       = gravatar(@user)
       %h4.user_area_title= full_name(@user)
   .large-8.columns
+    = render('follow_form') if logged_in?
     - if @user.posts.any?
       %h3 Posts #{@user.posts.count}
       .posts
