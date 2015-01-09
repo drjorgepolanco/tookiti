@@ -4,8 +4,22 @@ require 'rails/test_help'
 require "minitest/reporters"
 Minitest::Reporters.use!
 
+class CarrierWave::Mount::Mounter
+  def store!
+  end
+end
+
 class ActiveSupport::TestCase
+  include ActionDispatch::TestProcess
+
   fixtures :all
+
+  CarrierWave.root = Rails.root.join('test/fixtures')
+
+  def after_teardown
+    super
+    CarrierWave.clean_cached_files!(0)
+  end
 
   def is_logged_in?
   	!session[:user_id].nil?
