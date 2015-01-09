@@ -22,8 +22,5 @@
 # Ignore uploaded images
 /public/uploads/
 
-# Ignore test images
-/test/fixtures/files
-
 # Ignore DS_Store
 .DS_Store
