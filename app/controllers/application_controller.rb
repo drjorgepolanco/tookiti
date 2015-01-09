@@ -11,13 +11,5 @@ class ApplicationController < ActionController::Base
   		redirect_to(login_url)
   	end
   end
-
-  def correct_user
-  	@post = current_user.posts.find_by(id: params[:id])
-  	if @post.nil?
-  		redirect_to root_url 
-  		flash[:warning] = "you can't update or delete somebody else's stuff"
-  	end
-  end
   
 end
