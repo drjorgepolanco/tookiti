@@ -7,9 +7,14 @@
         %span menu
   %section.top-bar-section
     %ul.right
-      %li.divider
-      %li= link_to('home',     root_path)
       - if logged_in?
+        %li.divider
+        %li.has-dropdown
+          = link_to('posts', '#')
+          %ul.dropdown
+            %li= link_to('all posts', posts_path)
+            %li.divider
+            %li= link_to('new post',  new_post_path)
         %li.divider
         %li= link_to('users',  users_path)
         %li.divider
@@ -20,6 +25,10 @@
             %li.divider
             %li= link_to('logout',   logout_path, method: :delete)
       - else
+        %li.divider
+        %li= link_to('home',     root_path)
+        %li.divider
+        %li= link_to('posts',    posts_path)
         %li.divider
         %li.has-form
           = link_to('sign up', signup_path,  class: 'button alert radius')
