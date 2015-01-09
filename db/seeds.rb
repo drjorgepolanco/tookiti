@@ -18,7 +18,7 @@ User.create!(first_name: first_name, last_name: last_name, email: email,
 end
 
 users = User.order(:created_at).take(6)
-50.times do
+21.times do
 	title = "#{Faker::Lorem.word} #{Faker::Lorem.word}" 
 	image = File.open(File.join(Rails.root, 'test/fixtures/files/krake.jpg'))
 	users.each { |user| user.posts.create!(title: title, image: image) }
