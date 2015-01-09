@@ -1,0 +1,14 @@
+- @user ||= current_user
+.stats.large-12.columns
+  .large-6.columns
+    %a{href: "#{following_user_path(@user)}"}
+      %strong
+        #following.stat
+          = @user.following.count
+      following
+  .large-6.columns
+    %a{href: "#{followers_user_path(@user)}"}
+      %strong
+        #followers.stat
+          = @user.followers.count
+      followers
