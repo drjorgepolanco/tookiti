@@ -2,4 +2,6 @@
   = f.text_field :title, class: "radius", placeholder: 'title', autofocus: true
 .large-12.columns
   / = f.text_field :image, class: "radius", placeholder: 'image'
+  = image_tag(@post.image_url(:thumb)) if @post.image?
   = f.file_field :image, accept: 'image/jpeg,image/jpg,image/gif, image/png'
+  = f.hidden_field :image_cache
