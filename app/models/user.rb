@@ -70,6 +70,18 @@ class User < ActiveRecord::Base
 		reset_sent_at < 2.hours.ago
 	end
 
+	def follow(other_user)
+		active_relationships.create(followed_id: other_user.id)
+	end
+
+	def unfollow(other_user)
+		active_relationships.find_by(followed_id: other_user.id).destroy
+	end
+
+	def following?(other_user)
+		following.include?(other_user)
+	end
+
 	private
 
 	  def create_activation_digest
