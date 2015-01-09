@@ -4,6 +4,7 @@ car:
   description: The point is to find the best muscle car in America
   user: triculito 
   poll: false
+  created_at: <%= 3.months.ago %>
 
 restaurant:
   title: Best restaurant in Manhattan
@@ -11,3 +12,4 @@ restaurant:
   description: Help me find the very best restaurant in Manhattan
   user: triculito 
   poll: false
+  created_at: <%= 3.hours.ago %>
