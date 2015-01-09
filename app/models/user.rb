@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 	has_many :active_relationships, class_name: "Relationship",
 	                                foreign_key: "follower_id",
 	                                dependent: :destroy
+	has_many :following, through: :active_relationships, source: :followed
 
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates :password, length: { minimum: 8 }, allow_blank: true
