@@ -8,9 +8,12 @@ class User < ActiveRecord::Base
 
 	before_create :create_activation_digest
 
+	has_secure_password
 	has_many :posts,    dependent: :destroy
 	has_many :contests, dependent: :destroy
-	has_secure_password
+	has_many :active_relationships, class_name: "Relationship",
+	                                foreign_key: "follower_id",
+	                                dependent: :destroy
 
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates :password, length: { minimum: 8 }, allow_blank: true
