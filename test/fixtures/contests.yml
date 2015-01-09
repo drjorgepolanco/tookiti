@@ -1,0 +1,13 @@
+car:
+  title: Best muscle car
+  poster: car.jpg
+  description: The point is to find the best muscle car in America
+  user: triculito 
+  poll: false
+
+restaurant:
+  title: Best restaurant in Manhattan
+  poster: restaurant.jpg
+  description: Help me find the very best restaurant in Manhattan
+  user: triculito 
+  poll: false
