@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-	before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
-	before_action :correct_user,   only:          [:edit, :update, :destroy]
+	before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+	before_action :correct_user,   only:                [:edit, :update, :destroy]
 
 	def show
 		@post = Post.find(params[:id])
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 	  def correct_user
 	  	@post = current_user.posts.find_by(id: params[:id])
 	  	if @post.nil?
-	  		redirect_to root_url 
+	  		redirect_to(root_url)
 	  		flash[:warning] = "you can't update or delete somebody else's posts"
 	  	end
 	  end

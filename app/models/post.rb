@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   default_scope -> { order(created_at: :desc) }
   mount_uploader :image, PostImageUploader
   validates :user_id, presence: true
-  validates :title,   presence: true, length: { maximum: 40, minimum: 3 }
+  validates :title,   presence: true, length: { maximum: 30, minimum: 3 }
   validates :image,   presence: true
   validate  :image_size
 

@@ -13,7 +13,7 @@ class PostTest < ActiveSupport::TestCase
 	end
 
 	test "user id should be present" do
-		@post.user_id =  nil
+		@post.user_id = nil
 		assert_not @post.valid?
 	end
 
@@ -22,8 +22,8 @@ class PostTest < ActiveSupport::TestCase
 		assert_not @post.valid?
 	end
 
-	test "title should be no longer than 40 characters" do
-		@post.title = 'a' * 41
+	test "title should be no longer than 30 characters" do
+		@post.title = 'a' * 31
 		assert_not @post.valid?
 	end
 
