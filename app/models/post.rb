@@ -4,5 +4,12 @@ class Post < ActiveRecord::Base
   mount_uploader :image, PostImageUploader
   validates :user_id, presence: true
   validates :title,   presence: true, length: { maximum: 40, minimum: 3 }
-  # validates :image,   presence: true
+  validates :image,   presence: true
+  validate  :image_size
+
+  def image_size
+  	if image.size > 2.megabytes
+  		errors.add(:image, 'the image has to be smaller than 2MB')
+  	end
+  end
 end
