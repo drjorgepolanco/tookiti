@@ -20,6 +20,6 @@ end
 users = User.order(:created_at).take(6)
 50.times do
 	title = "#{Faker::Lorem.word} #{Faker::Lorem.word}" 
-	image = 'http://funny-pics-fun.com/wp-content/uploads/Very-Funny-Animal-Faces-8.jpg'
+	image = File.open(File.join(Rails.root, 'test/fixtures/files/krake.jpg'))
 	users.each { |user| user.posts.create!(title: title, image: image) }
 end
