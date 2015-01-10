@@ -1,0 +1,15 @@
+one:
+ follower: triculito
+ followed: jorge
+
+two:
+ follower: triculito
+ followed: massiel
+
+three:
+ follower: jorge
+ followed: triculito
+
+four:
+ follower: chumi
+ followed: triculito
