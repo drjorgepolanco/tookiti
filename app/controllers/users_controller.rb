@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
   before_action :set_user,       only: [:show, :destroy]
   before_action :correct_user,   only: [:edit, :update]
@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def show
     @posts = @user.posts
     redirect_to(root_url) and return unless @user.activated?
+    @users = @user.following
+    @contests = @user.contests
   end
 
   def new
