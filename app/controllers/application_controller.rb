@@ -11,5 +11,14 @@ class ApplicationController < ActionController::Base
   		redirect_to(login_url)
   	end
   end
+
+  def user_info
+    if logged_in?
+      @user   ||= current_user
+      @users    = @user.following
+      @posts    = @user.posts
+      @contests = @user.contests
+    end
+  end
   
 end
