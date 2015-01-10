@@ -14,3 +14,11 @@ jorge:
  password_digest: <%= User.digest('password') %>
  activated:       true
  activated_at:    <%= Time.zone.now %>
+
+venancio:
+ first_name:      Venancio
+ last_name:       Tre Diente
+ email:           trediente@mail.com
+ password_digest: <%= User.digest('password') %>
+ activated:       true
+ activated_at:    <%= Time.zone.now %>
