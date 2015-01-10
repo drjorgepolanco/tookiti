@@ -1,4 +1,21 @@
-.large-8.large-offset-2.columns
-  = link_to gravatar(current_user, size: 100), current_user 
-  %h3= link_to full_name(current_user), current_user
-  = pluralize(current_user.posts.count, 'post')
+%section.user_info
+  = gravatar(@user)
+  %h1= full_name(@user)
+  %span= link_to('view my profile', @user)
+  %span
+    %strong posts:
+    = @user.posts.count
+%section.stats
+  = render('shared/stats')
+%section.posts
+  - if @contests.any?
+    %h3= "#{@user.first_name}'s contests:"
+    .user_contests_thumbs
+      - @contests.each do |contest|
+        = link_to image_tag(contest.poster)
+%section.following
+  - if @users.any?
+    %h3= "#{@user.first_name} is following:"
+    .user_avatars
+      - @users.each do |user|
+        = link_to(gravatar(user, size: 30), user)

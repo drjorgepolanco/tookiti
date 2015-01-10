@@ -1,0 +1,9 @@
+- provide(:title, @title)
+.row
+  %aside.large-2.columns
+    = render('shared/user_info')
+  .large-10.columns
+    %h3= @title
+    - if @users.any?
+      %ul.users.follow
+        = render(@users)
