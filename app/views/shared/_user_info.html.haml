@@ -7,7 +7,7 @@
     = @user.posts.count
 %section.stats
   = render('shared/stats')
-%section.posts
+%section.contests
   - if @contests.any?
     %h5= "#{@user.first_name}'s contests:"
     .user_contests_thumbs
