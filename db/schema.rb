@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109203101) do
+ActiveRecord::Schema.define(version: 20150201144100) do
+
+  create_table "challenges", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "contest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "challenges", ["contest_id"], name: "index_challenges_on_contest_id"
+  add_index "challenges", ["post_id", "contest_id"], name: "index_challenges_on_post_id_and_contest_id", unique: true
+  add_index "challenges", ["post_id"], name: "index_challenges_on_post_id"
 
   create_table "contests", force: true do |t|
     t.string   "title"

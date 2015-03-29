@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  has_many   :challenges
+  has_many   :contests, through: :challenges
   default_scope -> { order(created_at: :desc) }
   mount_uploader :image, PostImageUploader
   validates :user_id, presence: true
